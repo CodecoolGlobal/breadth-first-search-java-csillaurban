@@ -11,14 +11,22 @@ public class UserNode {
     private static long idCounter = 0;
     private String firstName;
     private String lastName;
-
     private Set<UserNode> friends = new HashSet<>();
+    private int distance = -1;
 
     public UserNode(String firstName, String lastName) {
         this.id = idCounter;
         idCounter++;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
     }
 
     public long getId() {
@@ -49,6 +57,10 @@ public class UserNode {
     }
 
     public String toString() {
-        return firstName + "_" + lastName + " (" + id + ")";
+        return firstName + "_" + lastName + " (" + id + ")" + "friends: " + friends.size();
+    }
+
+    public String printFullName() {
+        return firstName + " " + lastName;
     }
 }
